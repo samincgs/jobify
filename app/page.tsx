@@ -4,16 +4,23 @@ import Main from '../assets/main-1.svg';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from '@/components/mode-toggle';
-import { SignUpButton } from '@clerk/nextjs';
+import { auth } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
 
 export default function Home() {
+  const { userId } = auth();
+
+  if (userId) {
+    redirect('/add-job');
+  }
+
   return (
     <div>
       <div className='max-w-7xl px-4 sm:px-8 pt-6 mx-auto flex items-center justify-between'>
         <Image src={Logo} alt='Logo' />
         <div className='flex items-center gap-x-4'>
-          <Button variant='outline'>
-            <SignUpButton />
+          <Button asChild variant='outline'>
+            <Link href='/add-job'>Sign Up</Link>
           </Button>
           <ModeToggle />
         </div>
