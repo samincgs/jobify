@@ -38,7 +38,9 @@ export default function Home() {
           </p>
           <div className='text-center max-w-lg'>
             <Button asChild className='mt-8 capitalize lg:text-lg'>
-              <Link href='/add-job'>get started</Link>
+              <Link href='/add-job' className='text-white'>
+                get started
+              </Link>
             </Button>
           </div>
         </div>
