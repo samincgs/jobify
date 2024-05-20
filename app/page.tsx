@@ -31,10 +31,10 @@ export default function Home() {
             job <span className='text-primary'>Tracking</span> app
           </h1>
           <p className='leading-loose max-w-lg mt-6 text-center'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-            perferendis quasi quo cupiditate earum suscipit? Ut illum et
-            deserunt? Ipsam hic maiores quidem consectetur similique,
-            exercitationem officiis nulla incidunt quam?
+            Effortlessly track your job interviews. Manage applications across
+            different companies and locations, and stay updated on your
+            status—whether it is pending, accepted, or rejected. Simplify your
+            job search and stay organized with ease.
           </p>
           <div className='text-center max-w-lg'>
             <Button asChild className='mt-8 capitalize lg:text-lg'>
