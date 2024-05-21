@@ -4,7 +4,7 @@ const AddJobPage = () => {
   return (
     <div>
       <h1>AddJobPage</h1>
-      <UserButton />
+      <UserButton afterSignOutUrl='/' />
     </div>
   );
 };

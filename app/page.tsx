@@ -15,12 +15,12 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <>
       <div className='max-w-7xl px-4 sm:px-8 pt-6 mx-auto flex items-center justify-between'>
         <Image src={Logo} alt='Logo' />
         <div className='flex items-center gap-x-4'>
           <Button asChild variant='outline'>
-            <Link href='/add-job'>Sign Up</Link>
+            <Link href={userId ? '/add-job' : '/sign-up'}>Sign Up</Link>
           </Button>
           <ModeToggle />
         </div>
@@ -38,7 +38,10 @@ export default function Home() {
           </p>
           <div className='text-center max-w-lg'>
             <Button asChild className='mt-8 capitalize lg:text-lg'>
-              <Link href='/add-job' className='text-white'>
+              <Link
+                href={userId ? '/add-job' : '/sign-up'}
+                className='text-white'
+              >
                 get started
               </Link>
             </Button>
@@ -46,6 +49,6 @@ export default function Home() {
         </div>
         <Image src={Main} alt='Main svg' className='hidden lg:block' />
       </div>
-    </div>
+    </>
   );
 }
