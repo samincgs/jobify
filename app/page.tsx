@@ -1,6 +1,6 @@
+import Logo from '../assets/logo.svg';
+import Main from '../assets/main.svg';
 import Image from 'next/image';
-import Logo from '../assets/jobify-logo.svg';
-import Main from '../assets/main-1.svg';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from '@/components/mode-toggle';
