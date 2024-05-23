@@ -1,3 +1,3 @@
 export const Sidebar = () => {
-  return <div>Sidebar</div>;
+  return <div className='hidden lg:block'>sidebar</div>;
 };

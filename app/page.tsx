@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <>
-      <div className='max-w-7xl px-4 sm:px-8 pt-6 mx-auto flex items-center justify-between'>
+      <div className=' max-w-7xl px-4 sm:px-8 pt-6 mx-auto flex items-center justify-between'>
         <Image src={Logo} alt='Logo' />
         <div className='flex items-center gap-x-4'>
           <Button asChild variant='outline'>
