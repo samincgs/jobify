@@ -10,7 +10,7 @@ export const Sidebar = () => {
   const pathname = usePathname();
   return (
     <div className='h-full py-4 px-8 bg-muted'>
-      <Image src={Logo} alt='logo' className='mx-auto' />
+      <Image src={Logo} alt='logo' className='mx-auto m-2' />
       <div className='flex flex-col mt-14 gap-y-4 '>
         {links.map((link) => (
           <Button
