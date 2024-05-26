@@ -5,7 +5,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className='grid lg:grid-cols-6'>
       {/* 1/6 col -> sidebar */}
-      <div className='lg:col-span-1 h-screen'>
+      <div className='lg:col-span-1 hidden lg:block lg:h-screen'>
         <Sidebar />
       </div>
       {/* 5/6 col -> navbar + page */}
