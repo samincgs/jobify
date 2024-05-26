@@ -1,10 +1,9 @@
-import { UserButton } from '@clerk/nextjs';
+import { CreateJobForm } from '@/components/create-job-form';
 
 const AddJobPage = () => {
   return (
     <div>
-      <h1>AddJobPage</h1>
-      <UserButton afterSignOutUrl='/' />
+      <CreateJobForm />
     </div>
   );
 };
