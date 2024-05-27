@@ -6,16 +6,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from './ui/form';
-import { Input } from './ui/input';
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './ui/select';
-import Link from 'next/link';
+} from '@/components/ui/select';
 
 interface CustomFormFieldProps {
   name: string;
@@ -40,7 +39,6 @@ export const CustomFormField = ({ name, control }: CustomFormFieldProps) => {
           <FormControl>
             <Input {...field} />
           </FormControl>
-          <FormDescription>This is your public display name.</FormDescription>
           <FormMessage />
         </FormItem>
       )}
