@@ -5,8 +5,12 @@ import { useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
+import { useToast } from '@/components/ui/use-toast';
 import { JobMode, JobStatus, jobSchema } from '@/utils/types';
 import { CustomFormField, CustomFormSelect } from './form-components';
+import { useQueryClient, useMutation } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
+import { createJobAction } from '@/utils/action';
 
 export const CreateJobForm = () => {
   const form = useForm<z.infer<typeof jobSchema>>({
@@ -20,8 +24,39 @@ export const CreateJobForm = () => {
     },
   });
 
+  const queryClient = useQueryClient();
+  const { toast } = useToast();
+  const router = useRouter();
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: (values: z.infer<typeof jobSchema>) => createJobAction(values),
+    onSuccess: (data) => {
+      if (!data) {
+        toast({
+          variant: 'destructive',
+          description: 'there was an error',
+        });
+        return;
+      }
+
+      toast({
+        description: 'job created',
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['jobs'],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['stats'],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['charts'],
+      });
+      router.push('/jobs');
+    },
+  });
+
   const onSubmit = (values: z.infer<typeof jobSchema>) => {
-    console.log(values);
+    mutate(values);
   };
 
   return (
@@ -51,7 +86,9 @@ export const CreateJobForm = () => {
           />
         </div>
         <div className='flex items-center justify-end mt-6'>
-          <Button type='submit'>Submit</Button>
+          <Button type='submit' disabled={isPending}>
+            Submit
+          </Button>
         </div>
       </form>
     </Form>
