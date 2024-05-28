@@ -45,3 +45,10 @@ export const jobSchema = z.object({
   status: z.nativeEnum(JobStatus),
   mode: z.nativeEnum(JobMode),
 });
+
+// format date
+export const formatDate = (date: Date) => {
+  const newDate = new Date(date).toLocaleDateString();
+
+  return newDate;
+};

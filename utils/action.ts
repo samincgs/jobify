@@ -74,3 +74,21 @@ export async function getAllJobsAction({
     return { jobs: [], count: 0, page: 1, totalPages: 0 };
   }
 }
+
+export async function deleteJobAction(id: string) {
+  try {
+    const userId = checkUser();
+
+    const job = await db.job.delete({
+      where: {
+        clerkId: userId,
+        id,
+      },
+    });
+
+    return job;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}

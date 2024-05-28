@@ -15,7 +15,7 @@ datasource db {
 
 model Job {
   id String @id @default(uuid())
-  clerkId String @unique
+  clerkId String 
   position String
   company String
   location String
