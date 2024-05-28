@@ -24,6 +24,13 @@ export enum JobMode {
   Internship = 'internship',
 }
 
+export type getAllJobsActionProps = {
+  search?: string;
+  jobStatus?: string;
+  page?: number;
+  limit?: number;
+};
+
 // form schema
 export const jobSchema = z.object({
   position: z.string().min(2, {
