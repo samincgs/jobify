@@ -5,6 +5,7 @@ import { checkUser } from './check-user';
 import { db } from './db';
 import { getAllJobsActionProps, jobSchema } from './types';
 import { z } from 'zod';
+import { redirect } from 'next/navigation';
 
 export async function createJobAction(values: z.infer<typeof jobSchema>) {
   try {
@@ -91,4 +92,28 @@ export async function deleteJobAction(id: string) {
     console.log(error);
     return null;
   }
+}
+
+export async function getSingleJobAction(id: string) {
+  let job;
+
+  try {
+    const userId = checkUser();
+
+    job = db.job.findUnique({
+      where: {
+        clerkId: userId,
+        id,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    job = null;
+  }
+
+  if (!job) {
+    redirect('/jobs');
+  }
+
+  return job;
 }
