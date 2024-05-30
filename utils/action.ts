@@ -117,3 +117,25 @@ export async function getSingleJobAction(id: string) {
 
   return job;
 }
+
+export async function updateJobAction(
+  id: string,
+  values: z.infer<typeof jobSchema>
+) {
+  try {
+    const userId = checkUser();
+
+    const job = await db.job.update({
+      where: {
+        clerkId: userId,
+        id,
+      },
+      data: {
+        ...values,
+      },
+    });
+    return job;
+  } catch (error) {
+    return null;
+  }
+}
