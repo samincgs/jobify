@@ -10,10 +10,10 @@ import {
 const JobsPage = async () => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery({
-    queryKey: ['jobs', '', 'all', 1],
-    queryFn: () => getAllJobsAction({}),
-  });
+  // await queryClient.prefetchQuery({
+  //   queryKey: ['jobs', '', 'all', 1],
+  //   queryFn: () => getAllJobsAction({}),
+  // });
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
